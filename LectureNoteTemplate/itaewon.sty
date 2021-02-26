@@ -1,0 +1,82 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{itaewon}[2021/02/21 Boxed for Definition,Theorems etc.]
+
+\RequirePackage[most]{tcolorbox}
+
+
+
+
+\newtcolorbox[auto counter,number within=subsection]{DefinitionBox}[3][]{
+        arc=5mm,
+        lower separated=false,
+        fonttitle=\bfseries,
+        colbacktitle=blue!10,
+        coltitle=blue!50!black,
+        enhanced,
+        attach boxed title to top left={xshift=0.5cm,
+                yshift=-2mm},
+        colframe=blue!50!black,
+        colback=blue!10,
+        overlay={
+        \node[draw=blue!50!black,thick,
+        %inner sep=2mm,
+        fill= blue!10,rounded corners=1mm, 
+        yshift=0pt, 
+        xshift=-0.5cm, 
+        left, 
+        text=blue!50!black,
+        anchor=east,
+        font=\bfseries] 
+        at (frame.north east) {#3};},
+        overlay={
+        \node[draw=blue!50!black,thick,
+        %inner sep=2mm,
+        fill= blue!10,rounded corners=1mm, 
+        yshift=0pt, 
+        xshift=-0.5cm, 
+        left, 
+        text=blue!50!black,
+        anchor=east,
+        font=\bfseries] 
+        at (frame.north east) {#3};},
+        title=#2 \thetcbcounter,#1
+                                }
+
+
+\newtcolorbox[auto counter,number within=subsection]{TheoremBox}[3][]   {
+        arc=5mm,
+        lower separated=false,
+        fonttitle=\bfseries,
+        colbacktitle=green!10,
+        coltitle=green!50!black,
+        enhanced,
+        attach boxed title to top left={xshift=0.5cm,
+                yshift=-2mm},
+        colframe=green!50!black,
+        colback=green!10,
+        overlay={
+        \node[draw=green!50!black,thick,
+        %inner sep=2mm,
+        fill= green!10,rounded corners=1mm, 
+        yshift=0pt, 
+        xshift=-0.5cm, 
+        left, 
+        text=green!50!black,
+        anchor=east,
+        font=\bfseries] 
+        at (frame.north east) {#3};},
+        overlay={
+        \node[draw=green!50!black,thick,
+        %inner sep=2mm,
+        fill= green!10,rounded corners=1mm, 
+        yshift=0pt, 
+        xshift=-0.5cm, 
+        left, 
+        text=green!50!black,
+        anchor=east,
+        font=\bfseries] 
+        at (frame.north east) {#3};},
+        title=#2 \thetcbcounter,#1
+                                        }
+
+
