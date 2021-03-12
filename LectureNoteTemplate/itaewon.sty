@@ -3,80 +3,43 @@
 
 \RequirePackage[most]{tcolorbox}
 
-
-
-
-\newtcolorbox[auto counter,number within=subsection]{DefinitionBox}[3][]{
-        arc=5mm,
-        lower separated=false,
-        fonttitle=\bfseries,
-        colbacktitle=blue!10,
-        coltitle=blue!50!black,
-        enhanced,
-        attach boxed title to top left={xshift=0.5cm,
-                yshift=-2mm},
-        colframe=blue!50!black,
-        colback=blue!10,
-        overlay={
-        \node[draw=blue!50!black,thick,
-        %inner sep=2mm,
-        fill= blue!10,rounded corners=1mm, 
-        yshift=0pt, 
-        xshift=-0.5cm, 
-        left, 
-        text=blue!50!black,
-        anchor=east,
-        font=\bfseries] 
-        at (frame.north east) {#3};},
-        overlay={
-        \node[draw=blue!50!black,thick,
-        %inner sep=2mm,
-        fill= blue!10,rounded corners=1mm, 
-        yshift=0pt, 
-        xshift=-0.5cm, 
-        left, 
-        text=blue!50!black,
-        anchor=east,
-        font=\bfseries] 
-        at (frame.north east) {#3};},
-        title=#2 \thetcbcounter,#1
-                                }
-
-
-\newtcolorbox[auto counter,number within=subsection]{TheoremBox}[3][]   {
-        arc=5mm,
-        lower separated=false,
-        fonttitle=\bfseries,
-        colbacktitle=green!10,
-        coltitle=green!50!black,
-        enhanced,
-        attach boxed title to top left={xshift=0.5cm,
-                yshift=-2mm},
-        colframe=green!50!black,
-        colback=green!10,
-        overlay={
-        \node[draw=green!50!black,thick,
-        %inner sep=2mm,
-        fill= green!10,rounded corners=1mm, 
-        yshift=0pt, 
-        xshift=-0.5cm, 
-        left, 
-        text=green!50!black,
-        anchor=east,
-        font=\bfseries] 
-        at (frame.north east) {#3};},
-        overlay={
-        \node[draw=green!50!black,thick,
-        %inner sep=2mm,
-        fill= green!10,rounded corners=1mm, 
-        yshift=0pt, 
-        xshift=-0.5cm, 
-        left, 
-        text=green!50!black,
-        anchor=east,
-        font=\bfseries] 
-        at (frame.north east) {#3};},
-        title=#2 \thetcbcounter,#1
-                                        }
-
-
+\newcommand{\DefineBoxFor}[2][black]{
+    \expandafter\newtcolorbox[auto counter,number within=subsection]{#2Box}[3][]{
+            arc=5mm,
+            lower separated=false,
+            fonttitle=\bfseries,
+            colbacktitle=#1!10,
+            coltitle=#1!50!black,
+            enhanced,
+            attach boxed title to top left={xshift=0.5cm,
+                    yshift=-2mm},
+            colframe=#1!50!black,
+            colback=#1!10,
+            overlay={
+            \node[draw=#1!50!black,thick,
+            %inner sep=2mm,
+            fill= #1!10,rounded corners=1mm, 
+            yshift=0pt, 
+            xshift=-0.5cm, 
+            left, 
+            text=#1!50!black,
+            anchor=east,
+            font=\bfseries] 
+            at (frame.north east) {##3};},
+            overlay={
+            \node[draw=#1!50!black,thick,
+            %inner sep=2mm,
+            fill= #1!10,rounded corners=1mm, 
+            yshift=0pt, 
+            xshift=-0.5cm, 
+            left, 
+            text=#1!50!black,
+            anchor=east,
+            font=\bfseries] 
+            at (frame.north east) {##3};},
+            title=##2 \thetcbcounter,##1
+        }
+}
+\DefineBoxFor[blue]{Definition}
+\DefineBoxFor[green]{Theorem}
+\DefineBoxFor[red]{Proposition}
