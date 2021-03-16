@@ -35,8 +35,6 @@ The only thing special with this template is that it lets you write elegant Defi
 ```
 
 <details>
-    
-    <details>
 <summary><b>See Sample Content</b></summary>
 
 #### Sample Output
